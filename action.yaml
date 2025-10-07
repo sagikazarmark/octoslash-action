@@ -1,0 +1,32 @@
+name: Octoslash
+description: "Run run commands from issues and pull requests"
+author: sagikazarmark
+
+branding:
+  icon: command
+  color: yellow
+
+inputs:
+  version:
+    description: "Version of octoslash to download (e.g., v0.0.2 or latest)"
+    required: false
+    default: latest
+  github-token:
+    description: "GitHub token for authentication"
+    required: true
+    default: ${{ github.token }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install octoslash
+      uses: sigoden/install-binary@7eb4b088aedf19fe9b2bc6c6bbdc12379ffb355c # v1.2.0
+      with:
+        repo: sagikazarmark/octoslash
+        tag: ${{ inputs.version }}
+
+    - name: Run octoslash
+      shell: bash
+      run: octoslash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
