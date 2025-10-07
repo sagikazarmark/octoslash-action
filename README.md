@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Octoslash
-        uses: sagikazarmark/octoslash-action
+        uses: sagikazarmark/octoslash-action@v0
         # with:
         #   version: v0.1.0
 
