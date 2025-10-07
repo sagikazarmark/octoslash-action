@@ -33,3 +33,5 @@ release bump='patch':
 
     git push origin $tag
     git push -f origin $major
+
+    gh release create $tag --generate-notes
